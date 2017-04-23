@@ -1,0 +1,1 @@
+export const HOST = 'http://api.douban.com/v2';

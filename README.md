@@ -1,5 +1,5 @@
-# Node + Express + superagent 转发 API 请求
-简单的几行代码实现如何通过Node + Express + superagent 转发 API 请求。已部署到 Heroku。
+# 豆瓣 API
+简单的几行代码实现如何通过Node + Express + superagent 转发 豆瓣 API 请求，解决跨域问题。
 
 **安装依赖**
 
@@ -12,7 +12,7 @@ npm i express superagent -S
 
 由于部署到Heroku时，端口是动态分配的，所以需要根据 `process.env.NODE_ENV` 动态设置端口:
 ```javascript
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 8081));
 ```
 **定义接口**
 
@@ -69,11 +69,8 @@ app.listen(app.get('port'), function() {
 **启动**
 
 ```
-cd node-proxy
-node index.js
+npm start
 ```
-
-具体见`node-proxy/index.js`
 
 # 部署到Heroku
 详情见： [官方 Getting Started](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction)

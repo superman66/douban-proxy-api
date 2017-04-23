@@ -2,12 +2,11 @@
  * Created by superman on 17/3/15.
  */
 
-var express = require('express');
-var request = require('superagent')
+import express from 'express'
+import MoviesRoutes from './routes/movie'
 
 var app = express();
-var HOST = 'http://api.douban.com/v2';
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 8081));
 /**
  * CORS support.
  */
@@ -23,31 +22,9 @@ app.all('*', function (req, res, next) {
   next();
 });
 
-// 榜单信息
-app.get('/movie/:type', function (req, res) {
-  var sreq = request.get(HOST + req.originalUrl)
-  sreq.pipe(res);
-  sreq.on('end', function (error, res) {
-    console.log('end');
-  });
-})
+app.use('/movie', MoviesRoutes)
 
-app.get('/movie/subject/:id', function (req, res) {
-  var sreq = request.get(HOST + req.originalUrl)
-  sreq.pipe(res);
-  sreq.on('end', function (error, res) {
-    console.log('end');
-  });
-})
 
-app.get('/movie/search', function (req, res) {
-  var sreq = request.get(HOST + req.originalUrl)
-  sreq.pipe(res);
-  sreq.on('end', function (error, res) {
-    console.log('end');
-  });
-})
-
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });
