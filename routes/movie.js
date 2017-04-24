@@ -3,26 +3,34 @@ import request from 'superagent'
 import { HOST } from '../constant/config.js'
 const router = express.Router()
 
-// 榜单信息
-router.get('/:type', function (req, res) {
+/**
+ * 获取榜单信息
+ */
+router.get('/:type', (req, res) => {
   var sreq = request.get(HOST + req.originalUrl)
   sreq.pipe(res);
-  sreq.on('end', function (error, res) {
+  sreq.on('end', (error, res) => {
     console.log('end');
   });
 })
 
-router.get('/subject/:id', function (req, res) {
+/**
+ * 获取电影详情
+ */
+router.get('/subject/:id', (req, res) => {
   var sreq = request.get(HOST + req.originalUrl)
   sreq.pipe(res);
-  sreq.on('end', function (error, res) {
+  sreq.on('end', (error, res) => {
   });
 })
 
-router.get('/search', function (req, res) {
+/**
+ * 电影搜索
+ */
+router.get('/search', (req, res) => {
   var sreq = request.get(HOST + req.originalUrl)
   sreq.pipe(res);
-  sreq.on('end', function (error, res) {
+  sreq.on('end', (error, res) => {
   });
 })
 

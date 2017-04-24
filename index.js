@@ -4,13 +4,15 @@
 
 import express from 'express'
 import MoviesRoutes from './routes/movie'
+import BookRoutes from './routes/book'
+import MusicRoutes from './routes/music'
 
 var app = express();
 app.set('port', (process.env.PORT || 8081));
+
 /**
  * CORS support.
  */
-
 app.all('*', function (req, res, next) {
   if (!req.get('Origin')) return next();
   // use "*" here to accept any origin
@@ -23,7 +25,8 @@ app.all('*', function (req, res, next) {
 });
 
 app.use('/movie', MoviesRoutes)
-
+app.use('/book', BookRoutes)
+app.use('/music', MusicRoutes)
 
 app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
