@@ -1,11 +1,12 @@
-# 豆瓣 API
-简单的几行代码实现如何通过Node + Express + superagent 转发 豆瓣 API 请求，解决跨域问题。
+# 豆瓣 Api V2 Node.js 转发服务
+简单的几行代码实现通过 Node.js + Express + superagent 转发豆瓣 Api 请求，解决跨域问题。
 
 **安装依赖**
 
-Node.js 转发请求用到了 `express`和`superagent`. [superanget](https://github.com/visionmedia/superagent)是一个 Node.js HTTP client。
+Node.js 转发请求用到了 `express` 和 `superagent`. [superanget](https://github.com/visionmedia/superagent)是一个 Node.js HTTP client,主要用于在 Node.js 中发起 Http 请求。
+进入项目：
 ```
-npm i express superagent -S
+npm install
 ```
 
 **端口设置**
