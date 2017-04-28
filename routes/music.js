@@ -16,6 +16,9 @@ router.get('/:id', (req, res) => {
 
 /**
  * 搜索音乐
+ * q 和 tag 作为查询关键字，二者必传其一
+ * start 取结果的offset，默认为0
+ * count 取结果的条数
  */
 router.get('/search', (req, res) => {
   const sreq = request.get(HOST + req.originalUrl)

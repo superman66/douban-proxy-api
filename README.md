@@ -11,14 +11,17 @@ npm install
 
 **端口设置**
 
-由于部署到Heroku时，端口是动态分配的，所以需要根据 `process.env.NODE_ENV` 动态设置端口:
+由于部署到 Heroku 时，端口是动态分配的，所以需要根据 `process.env.NODE_ENV` 动态设置端口。
+如果不需要部署到 Heroku，可直接设置静态端口。
 ```javascript
 app.set('port', (process.env.PORT || 8081));
 ```
 **定义接口**
 
-根据前端所需，定义了如下三个接口：
+根据豆瓣 提供的 Api，我整理出其中的 `movie`、`book` 和 `music` 三个部分，放在 `routes/` 文件夹下。
+来看看如何定义接口（以 `routes/movie.js` 为例）：
 ```javascript
+// 定义 restful api
 app.get('/movie/:type', function (req, res) {
   var sreq = request.get(HOST + req.originalUrl)
   sreq.pipe(res);
